@@ -48,9 +48,6 @@ NSString* runCommand(NSString *command, NSArray *args, BOOL waitForOutput) {
     
     NSString *result;
     result = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-    [string release];
-    [task release];
     
     if ([result length] == 0) {
         result = nil;
@@ -119,7 +116,6 @@ NSString* runAuthorizedCommand(NSString *command, NSArray *args, AuthorizationRe
              length:charsRead
              encoding:NSUTF8StringEncoding];
             [processOutputString appendString:bufferString];
-            [bufferString release];
         }
         
         // Trim output
@@ -157,8 +153,6 @@ NSDictionary* mergeDictionaries(NSDictionary *dictionary, NSDictionary *other) {
         [result addEntriesFromDictionary:dictionary];
     }
     
-    // Return result
-    [result autorelease];
     return result;
 }
 

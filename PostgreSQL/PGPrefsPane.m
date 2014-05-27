@@ -162,7 +162,6 @@
         DLog(@"Warning - delegate already exists! Removing existing delegate...");
         id existingDelegate = [self delegate];
         [self setDelegate:nil];
-        [existingDelegate release];
     }
     
     // Set new delegate
@@ -259,8 +258,6 @@
     [self.refreshButton setEnabled:YES];
     [self.autoStartupCheckbox setEnabled:YES];
     [self.spinner stopAnimation:self];
-    
-    [started release];
 }
 
 - (void)displayStopped {
@@ -278,8 +275,6 @@
     [self.refreshButton setEnabled:YES];
     [self.autoStartupCheckbox setEnabled:YES];
     [self.spinner stopAnimation:self];
-    
-    [stopped release];
 }
 
 - (void)displayStarting {
@@ -291,7 +286,6 @@
     [self.startStopButton setEnabled:NO];
     [self.refreshButton setEnabled:NO];
     [self.spinner startAnimation:self];
-    [checking release];
 }
 
 - (void)displayStopping {
@@ -303,7 +297,6 @@
     [self.startStopButton setEnabled:NO];
     [self.refreshButton setEnabled:NO];
     [self.spinner startAnimation:self];
-    [checking release];
 }
 
 - (void)displayChecking {
@@ -324,7 +317,6 @@
     [self displayAutoStartupNoError];
     [self.autoStartupCheckbox setEnabled:NO];
     
-    [checking release];
 }
 
 - (void)displayUnknown {
@@ -342,8 +334,6 @@
     [self.startStopButton setEnabled:NO];
     [self.refreshButton setEnabled:YES];
     [self.spinner stopAnimation:self];
-    
-    [stopped release];
 }
 
 - (void)displayLocked {
@@ -383,11 +373,6 @@
 - (void)displayAutoStartupNoError {
     [self.autoStartupInfo setTextColor:[NSColor blackColor]];
     [self.autoStartupInfo setTitleWithMnemonic:@"Select this option if you would like the PostgreSQL server to start automatically whenever your computer starts up."];    
-}
-
-- (void)dealloc {
-    [delegate release];
-    [super dealloc];
 }
 
 - (void)displayUpdatingSettings {

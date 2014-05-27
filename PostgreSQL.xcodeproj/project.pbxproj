@@ -306,7 +306,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = "PostgreSQL/PostgreSQL-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -321,7 +320,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PostgreSQL/PostgreSQL-Info.plist";
 				INFOPLIST_PREFIX_HEADER = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = PostgreSQL;
@@ -339,7 +338,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PREFIX_HEADER = "PostgreSQL/PostgreSQL-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -348,7 +346,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PostgreSQL/PostgreSQL-Info.plist";
 				INFOPLIST_PREFIX_HEADER = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = PostgreSQL;
 				SDKROOT = macosx;
@@ -362,6 +360,7 @@
 				GCC_PREFIX_HEADER = "PostgreSQL/PostgreSQL-Prefix.pch";
 				INFOPLIST_FILE = "PostgreSQL/PostgreSQL-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = PostgreSQL;
 				WRAPPER_EXTENSION = prefPane;
 			};
@@ -374,6 +373,7 @@
 				GCC_PREFIX_HEADER = "PostgreSQL/PostgreSQL-Prefix.pch";
 				INFOPLIST_FILE = "PostgreSQL/PostgreSQL-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = PostgreSQL;
 				WRAPPER_EXTENSION = prefPane;
 			};
