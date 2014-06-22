@@ -58,6 +58,10 @@ NSString* runCommand(NSString *command, NSArray *args, BOOL waitForOutput) {
 //
 // Runs a shell command with authorization and either returns output or returns immediately with no output
 //
+
+// Use these:
+// https://developer.apple.com/library/mac/samplecode/SMJobBless/Introduction/Intro.html
+// http://blog.ideveloper.tv/designing-writing-and-deploying-a-privileged-helper-on-mac-os-x/
 NSString* runAuthorizedCommand(NSString *command, NSArray *args, AuthorizationRef authorization, BOOL waitForOutput) {
     // Convert command into const char*;
     const char *commandArg = strdup([command UTF8String]);

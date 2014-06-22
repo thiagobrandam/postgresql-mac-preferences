@@ -160,7 +160,6 @@
     // Remove existing delegate
     if ([self delegate]) {
         DLog(@"Warning - delegate already exists! Removing existing delegate...");
-        id existingDelegate = [self delegate];
         [self setDelegate:nil];
     }
     
@@ -248,10 +247,10 @@
     NSImage *started = [[NSImage alloc] initWithContentsOfFile:startedPath];
     
     [self.startStopButton setTitle:@"Stop PostgreSQL"];
-    [self.statusInfo setTitleWithMnemonic:@"The PostgreSQL Database Server is started and ready for client connections. To shut down the server, use the \"Stop PostgreSQL Server\" button."];
-    [self.statusLabel setTitleWithMnemonic:@"Running"];
+    [self.statusInfo setStringValue:@"The PostgreSQL Database Server is started and ready for client connections. To shut down the server, use the \"Stop PostgreSQL Server\" button."];
+    [self.statusLabel setStringValue:@"Running"];
     [self.statusLabel setTextColor:[NSColor greenColor]];
-    [self.startStopInfo setTitleWithMnemonic:@"If you stop the server, you and your applications will not be able to use PostgreSQL and all current connections will be closed."];
+    [self.startStopInfo setStringValue:@"If you stop the server, you and your applications will not be able to use PostgreSQL and all current connections will be closed."];
     [self.statusImage setImage:started];        
     
     [self.startStopButton setEnabled:YES];
@@ -265,10 +264,10 @@
     NSImage *stopped = [[NSImage alloc] initWithContentsOfFile:stoppedPath];
     
     [self.startStopButton setTitle:@"Start PostgreSQL"];
-    [self.statusInfo setTitleWithMnemonic:@"The PostgreSQL Database Server is currently stopped.\nTo start it, use the \"Start PostgreSQL Server\" button."];
-    [self.statusLabel setTitleWithMnemonic:@"Stopped"];
+    [self.statusInfo setStringValue:@"The PostgreSQL Database Server is currently stopped.\nTo start it, use the \"Start PostgreSQL Server\" button."];
+    [self.statusLabel setStringValue:@"Stopped"];
     [self.statusLabel setTextColor:[NSColor redColor]];
-    [self.startStopInfo setTitleWithMnemonic:@""];
+    [self.startStopInfo setStringValue:@""];
     [self.statusImage setImage:stopped];
     
     [self.startStopButton setEnabled:YES];
@@ -280,7 +279,7 @@
 - (void)displayStarting {
     NSString *checkingPath = [[self bundle] pathForResource:@"checking" ofType:@"png"];
     NSImage *checking = [[NSImage alloc] initWithContentsOfFile:checkingPath];
-    [self.statusLabel setTitleWithMnemonic:@"Starting..."];
+    [self.statusLabel setStringValue:@"Starting..."];
     [self.statusLabel setTextColor:[NSColor blueColor]];
     [self.statusImage setImage:checking];
     [self.startStopButton setEnabled:NO];
@@ -291,7 +290,7 @@
 - (void)displayStopping {
     NSString *checkingPath = [[self bundle] pathForResource:@"checking" ofType:@"png"];
     NSImage *checking = [[NSImage alloc] initWithContentsOfFile:checkingPath];
-    [self.statusLabel setTitleWithMnemonic:@"Stopping..."];
+    [self.statusLabel setStringValue:@"Stopping..."];
     [self.statusLabel setTextColor:[NSColor blueColor]];
     [self.statusImage setImage:checking];
     [self.startStopButton setEnabled:NO];
@@ -304,10 +303,10 @@
     NSImage *checking = [[NSImage alloc] initWithContentsOfFile:checkingPath];
     
     [self.startStopButton setTitle:@"PostgreSQL"];
-    [self.statusInfo setTitleWithMnemonic:@"The running status of the PostgreSQL Database Server is not currently known."];
-    [self.statusLabel setTitleWithMnemonic:@"Checking..."];
+    [self.statusInfo setStringValue:@"The running status of the PostgreSQL Database Server is not currently known."];
+    [self.statusLabel setStringValue:@"Checking..."];
     [self.statusLabel setTextColor:[NSColor blueColor]];
-    [self.startStopInfo setTitleWithMnemonic:@""];
+    [self.startStopInfo setStringValue:@""];
     [self.statusImage setImage:checking];
     
     [self.startStopButton setEnabled:NO];
@@ -324,12 +323,12 @@
     NSImage *stopped = [[NSImage alloc] initWithContentsOfFile:stoppedPath];
     
     [self.startStopButton setTitle:@"PostgreSQL"];
-    [self.statusInfo setTitleWithMnemonic:@"The running status of the PostgreSQL Database Server is not currently known."];
-    [self.statusLabel setTitleWithMnemonic:@"Unknown"];
+    [self.statusInfo setStringValue:@"The running status of the PostgreSQL Database Server is not currently known."];
+    [self.statusLabel setStringValue:@"Unknown"];
     [self.statusLabel setTextColor:[NSColor redColor]];
     [self.statusImage setImage:stopped];
     if (isBlankString([self.startStopInfo stringValue])) {
-        [self.startStopInfo setTitleWithMnemonic:@"Please check the values in the Settings tab and try again."];
+        [self.startStopInfo setStringValue:@"Please check the values in the Settings tab and try again."];
     }
     [self.startStopButton setEnabled:NO];
     [self.refreshButton setEnabled:YES];
@@ -352,14 +351,14 @@
 }
 
 - (void)displayError:(NSString *)errMsg {
-    [self.errorLabel setTitleWithMnemonic:errMsg];
+    [self.errorLabel setStringValue:errMsg];
     [self.errorLabel setHidden:NO];
     [self.errorIcon setHidden:NO];
     [self.startStopInfo setHidden:YES];
 }
 
 - (void)displayNoError {
-    [self.errorLabel setTitleWithMnemonic:@""];
+    [self.errorLabel setStringValue:@""];
     [self.errorLabel setHidden:YES];
     [self.errorIcon setHidden:YES];
     [self.startStopInfo setHidden:NO];
@@ -367,12 +366,12 @@
 
 - (void)displayAutoStartupError:(NSString *) errMsg {
     [self.autoStartupInfo setTextColor:[NSColor redColor]];
-    [self.autoStartupInfo setTitleWithMnemonic:errMsg];
+    [self.autoStartupInfo setStringValue:errMsg];
 }
 
 - (void)displayAutoStartupNoError {
     [self.autoStartupInfo setTextColor:[NSColor blackColor]];
-    [self.autoStartupInfo setTitleWithMnemonic:@"Select this option if you would like the PostgreSQL server to start automatically whenever your computer starts up."];    
+    [self.autoStartupInfo setStringValue:@"Select this option if you would like the PostgreSQL server to start automatically whenever your computer starts up."];
 }
 
 - (void)displayUpdatingSettings {
